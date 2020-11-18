@@ -6,7 +6,7 @@ package Model;
  * @Date 18.11.2020
  */
 public class Bird {
-     int xPo = 50;
+     int xPos = 50;
      int yPos = 50;
 
 
@@ -14,16 +14,16 @@ public class Bird {
 
     }
     public Bird(int xPo, int yPos) {
-        this.xPo = xPo;
+        this.xPos = xPo;
         this.yPos = yPos;
     }
 
-    public int getxPo() {
-        return xPo;
+    public int getxPos() {
+        return xPos;
     }
 
-    public void setxPo(int xPo) {
-        this.xPo = xPo;
+    public void setxPos(int xPos) {
+        this.xPos = xPos;
     }
 
     public int getyPos() {

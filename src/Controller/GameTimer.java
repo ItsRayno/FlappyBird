@@ -13,11 +13,15 @@ import java.util.Vector;
 public class GameTimer extends Thread{
     boolean running = true;
     Bird bird;
-    Vector<Obstacle> obstacles = new Vector<>();
+    Vector<Obstacle> obstacles;
+    Collide collideCheck = new Collide();
+    int freeze = 1;
 
-    public GameTimer(Bird bird, Vector<Obstacle> obstacles) {
+
+    public GameTimer(Bird bird, Vector<Obstacle> obstacles, Collide collideCheck) {
         this.bird = bird;
         this.obstacles = obstacles;
+        this.collideCheck = collideCheck;
     }
 
     @Override
@@ -27,7 +31,12 @@ public class GameTimer extends Thread{
                 sleep(10);
                 bird.setyPos(bird.getyPos()+2);
                 obstacles.get(0).setxPos(obstacles.get(0).getxPos()-3);
-
+                if(collideCheck.BirdInFrame()){
+                    System.out.println("Hey");
+                }
+                if(collideCheck.BirdHitObsatcle()){
+                    System.out.println("No");
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -27,7 +27,7 @@ public class Draw extends JLabel {
 
         try {
 
-            img_bird = ImageIO.read(new File("C:\\Users\\Kristopher\\Desktop\\Informatik\\JavaScriptFREI\\FlappyBird\\img\\bird.jpg"));
+            img_bird = ImageIO.read(new File("./img/bird.png"));
         } catch (IOException ex) {
         }
     }
@@ -39,11 +39,9 @@ public class Draw extends JLabel {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
 
-        g.drawImage(img_bird,bird.getxPo(),bird.getyPos(),null);
+        g.drawImage(img_bird,bird.getxPos(),bird.getyPos(),null);
         g.setColor(Color.RED);
         g.fillRect(obstacles.get(0).getxPos(),0,100,200);
-
-
 
 
 

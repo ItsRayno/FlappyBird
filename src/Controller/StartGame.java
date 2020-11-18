@@ -15,6 +15,7 @@ public class StartGame {
     public static void main(String[] args) {
         Bird bird = new Bird();
         Vector<Obstacle> obstacles = new Vector<>();
+        Collide checkCollide = new Collide(bird,obstacles);
 
         Obstacle obstacleOne = new Obstacle();
         Obstacle obstacleTwo = new Obstacle();
@@ -26,7 +27,7 @@ public class StartGame {
 
 
         new GameFrame(bird,obstacles);
-        GameTimer gTimer = new GameTimer(bird,obstacles);
+        GameTimer gTimer = new GameTimer(bird,obstacles, checkCollide);
         gTimer.run();
 
 
