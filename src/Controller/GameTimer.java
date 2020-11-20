@@ -3,6 +3,7 @@ package Controller;
 import Model.Bird;
 import Model.Obstacle;
 
+import java.awt.*;
 import java.util.Vector;
 
 /**
@@ -14,8 +15,7 @@ public class GameTimer extends Thread{
     boolean running = true;
     Bird bird;
     Vector<Obstacle> obstacles;
-    Collide collideCheck = new Collide();
-    int freeze = 1;
+    Collide collideCheck;
 
 
     public GameTimer(Bird bird, Vector<Obstacle> obstacles, Collide collideCheck) {
@@ -28,20 +28,34 @@ public class GameTimer extends Thread{
     public void run() {
         while(running){
             try {
-                sleep(10);
+                sleep(20);
                 bird.setyPos(bird.getyPos()+2);
                 obstacles.get(0).setxPos(obstacles.get(0).getxPos()-3);
-                if(collideCheck.BirdInFrame()){
-                    System.out.println("Hey");
+                if (obstacles.get(0).getxPos() < -10){
+                    obstacles.get(0).setxPos(680);
                 }
-                if(collideCheck.BirdHitObsatcle()){
-                    System.out.println("No");
+
+                if(Collide()){
                 }
+
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
 
+    }
+    public boolean Collide(){
+        boolean check;
+        Rectangle r1 = new Rectangle(bird.getxPos(),bird.getyPos(),bird.getBirdWidth(),bird.getBirdHeight());
+        Rectangle r2 = new Rectangle(obstacles.get(0).getxPos(),obstacles.get(0).getyPos(),obstacles.get(0).getRecWidth(),obstacles.get(0).getRecHeight());
+
+        if (r1.intersects(r2)){
+            check = true;
+        }else{
+            check = false;
+        }
+        return check;
     }
 
     public boolean isRunning() {

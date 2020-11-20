@@ -1,11 +1,12 @@
 package Model;
+import java.awt.Rectangle;
 
 /**
  * @author KRISTOPHER CONCHA LEON BENJAMIN
  * @version 1.0
  * @Date 18.11.2020
  */
-public class Obstacle {
+public class Obstacle extends Rectangle{
      int xPos = 580;
      int yPos = 0;
      int width;
@@ -37,7 +38,7 @@ public class Obstacle {
         this.yPos = yPos;
     }
 
-    public int getWidth() {
+    public int getRecWidth() {
         return width;
     }
 
@@ -45,11 +46,13 @@ public class Obstacle {
         this.width = width;
     }
 
-    public int getHeight() {
+    public int getRecHeight() {
         return height;
     }
 
     public void setHeight(int height) {
         this.height = height;
     }
+
+
 }

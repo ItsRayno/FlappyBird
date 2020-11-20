@@ -17,7 +17,7 @@ public class StartGame {
         Vector<Obstacle> obstacles = new Vector<>();
         Collide checkCollide = new Collide(bird,obstacles);
 
-        Obstacle obstacleOne = new Obstacle();
+        Obstacle obstacleOne = new Obstacle(680,0,70,200);
         Obstacle obstacleTwo = new Obstacle();
         Obstacle obstacleThree = new Obstacle();
 
@@ -28,6 +28,7 @@ public class StartGame {
 
         new GameFrame(bird,obstacles);
         GameTimer gTimer = new GameTimer(bird,obstacles, checkCollide);
+
         gTimer.run();
 
 

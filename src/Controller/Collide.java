@@ -35,16 +35,14 @@ public class Collide {
 
     }
     public boolean BirdHitObsatcle(){
-        boolean check = false;
-        for (int i = 0; i < obstacles.size(); i++) {
-            if(bird.getyPos() == obstacles.get(i).getyPos() && bird.getxPos() == obstacles.get(i).getxPos()){
-                check = true;
-            } else{
-                check = false;
-            }
+        boolean check1 = false;
 
-        }
-        return check;
+            if (bird.intersects(obstacles.get(0))){
+                check1 = true;
+            }else{
+                check1 = false;
+            }
+        return check1;
     }
 
 }

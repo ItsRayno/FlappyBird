@@ -21,13 +21,15 @@ public class Draw extends JLabel {
     Vector<Obstacle> obstacles;
 
     private BufferedImage img_bird;
+    private BufferedImage img_UpPipe;
     public Draw(Bird bird, Vector<Obstacle> obstacles) {
         this.bird = bird;
         this.obstacles = obstacles;
 
         try {
-
             img_bird = ImageIO.read(new File("./img/bird.png"));
+            img_UpPipe = ImageIO.read(new File("./img/UpPipe.png"));
+
         } catch (IOException ex) {
         }
     }
@@ -41,15 +43,10 @@ public class Draw extends JLabel {
 
         g.drawImage(img_bird,bird.getxPos(),bird.getyPos(),null);
         g.setColor(Color.RED);
-        g.fillRect(obstacles.get(0).getxPos(),0,100,200);
-
-
-
-
-
-
+        g.drawImage(img_UpPipe,obstacles.get(0).getxPos(),obstacles.get(0).getyPos(),obstacles.get(0).getRecWidth(),obstacles.get(0).getRecHeight(),null);
 
         repaint();
     }
+
 
 }
