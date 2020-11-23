@@ -26,16 +26,34 @@ public class GameTimer extends Thread{
 
     @Override
     public void run() {
+        while (!running){
+            try {
+                sleep(50);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         while(running){
             try {
-                sleep(20);
-                bird.setyPos(bird.getyPos()+2);
+                sleep(10);
+
+                bird.setyPos(bird.getyPos()+2); // Runterfallen
                 obstacles.get(0).setxPos(obstacles.get(0).getxPos()-3);
+                obstacles.get(1).setxPos(obstacles.get(1).getxPos()-3);
+                obstacles.get(2).setxPos(obstacles.get(2).getxPos()-3);
+
                 if (obstacles.get(0).getxPos() < -10){
-                    obstacles.get(0).setxPos(680);
+                    obstacles.get(0).setxPos(1000);
+                }
+                if (obstacles.get(1).getxPos() < -10){
+                    obstacles.get(1).setxPos(1000);
+                }
+                if (obstacles.get(2).getxPos() < -10){
+                    obstacles.get(2).setxPos(1000);
                 }
 
                 if(Collide()){
+                    running = false;
                 }
 
 
@@ -43,14 +61,16 @@ public class GameTimer extends Thread{
                 e.printStackTrace();
             }
         }
-
+        run();
     }
     public boolean Collide(){
         boolean check;
         Rectangle r1 = new Rectangle(bird.getxPos(),bird.getyPos(),bird.getBirdWidth(),bird.getBirdHeight());
         Rectangle r2 = new Rectangle(obstacles.get(0).getxPos(),obstacles.get(0).getyPos(),obstacles.get(0).getRecWidth(),obstacles.get(0).getRecHeight());
+        Rectangle r3 = new Rectangle(obstacles.get(1).getxPos(),obstacles.get(1).getyPos(),obstacles.get(1).getRecWidth(),obstacles.get(1).getRecHeight());
+        Rectangle r4 = new Rectangle(obstacles.get(2).getxPos(),obstacles.get(2).getyPos(),obstacles.get(2).getRecWidth(),obstacles.get(2).getRecHeight());
 
-        if (r1.intersects(r2)){
+        if (r1.intersects(r2) || r1.intersects(r3) || r1.intersects(r4) ){
             check = true;
         }else{
             check = false;

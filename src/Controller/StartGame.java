@@ -18,8 +18,8 @@ public class StartGame {
         Collide checkCollide = new Collide(bird,obstacles);
 
         Obstacle obstacleOne = new Obstacle(680,0,70,200);
-        Obstacle obstacleTwo = new Obstacle();
-        Obstacle obstacleThree = new Obstacle();
+        Obstacle obstacleTwo = new Obstacle(980,0,70,200);
+        Obstacle obstacleThree = new Obstacle(1280,0,70,200);
 
         obstacles.add(obstacleOne);
         obstacles.add(obstacleTwo);
