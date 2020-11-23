@@ -43,13 +43,13 @@ public class GameTimer extends Thread{
                 obstacles.get(2).setxPos(obstacles.get(2).getxPos()-3);
 
                 if (obstacles.get(0).getxPos() < -10){
-                    obstacles.get(0).setxPos(1000);
+                    obstacles.get(0).setxPos(1200);
                 }
                 if (obstacles.get(1).getxPos() < -10){
-                    obstacles.get(1).setxPos(1000);
+                    obstacles.get(1).setxPos(1200);
                 }
                 if (obstacles.get(2).getxPos() < -10){
-                    obstacles.get(2).setxPos(1000);
+                    obstacles.get(2).setxPos(1200);
                 }
 
                 if(Collide()){
@@ -69,8 +69,11 @@ public class GameTimer extends Thread{
         Rectangle r2 = new Rectangle(obstacles.get(0).getxPos(),obstacles.get(0).getyPos(),obstacles.get(0).getRecWidth(),obstacles.get(0).getRecHeight());
         Rectangle r3 = new Rectangle(obstacles.get(1).getxPos(),obstacles.get(1).getyPos(),obstacles.get(1).getRecWidth(),obstacles.get(1).getRecHeight());
         Rectangle r4 = new Rectangle(obstacles.get(2).getxPos(),obstacles.get(2).getyPos(),obstacles.get(2).getRecWidth(),obstacles.get(2).getRecHeight());
+        Rectangle r5 = new Rectangle(obstacles.get(0).getxPos(),obstacles.get(0).getyPos()+325,obstacles.get(0).getRecWidth(),obstacles.get(0).getRecHeight()+200);
+        Rectangle r6 = new Rectangle(obstacles.get(1).getxPos(),obstacles.get(1).getyPos()+325,obstacles.get(1).getRecWidth(),obstacles.get(1).getRecHeight()+200);
+        Rectangle r7 = new Rectangle(obstacles.get(2).getxPos(),obstacles.get(2).getyPos()+325,obstacles.get(2).getRecWidth(),obstacles.get(2).getRecHeight()+200);
 
-        if (r1.intersects(r2) || r1.intersects(r3) || r1.intersects(r4) ){
+        if (r1.intersects(r2) || r1.intersects(r3) || r1.intersects(r4) || r1.intersects(r5) || r1.intersects(r6) || r1.intersects(r7)){
             check = true;
         }else{
             check = false;

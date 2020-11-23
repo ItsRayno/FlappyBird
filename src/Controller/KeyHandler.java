@@ -27,7 +27,7 @@ public class KeyHandler implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if(e.getKeyCode() == KeyEvent.VK_SPACE ){
-            bird.setyPos(bird.getyPos()-70);
+            bird.setyPos(bird.getyPos()-60);
         }
     }
 

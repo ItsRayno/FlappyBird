@@ -23,6 +23,7 @@ public class Draw extends JLabel {
     private BufferedImage img_bird;
     private BufferedImage img_UpPipe;
     private BufferedImage img_DownPipe;
+    private BufferedImage img_BackGround;
     public Draw(Bird bird, Vector<Obstacle> obstacles) {
         this.bird = bird;
         this.obstacles = obstacles;
@@ -31,6 +32,7 @@ public class Draw extends JLabel {
             img_bird = ImageIO.read(new File("./img/bird.png"));
             img_UpPipe = ImageIO.read(new File("./img/UpPipe.png"));
             img_DownPipe = ImageIO.read(new File("./img/pipe.png"));
+            img_BackGround = ImageIO.read(new File("./img/background.jpg"));
 
         } catch (IOException ex) {
         }
@@ -45,10 +47,17 @@ public class Draw extends JLabel {
 
 
         g.setColor(Color.RED);
+
+        g.drawImage(img_BackGround,0,0,680,600,null);
+
         g.drawImage(img_UpPipe,obstacles.get(0).getxPos(),obstacles.get(0).getyPos(),obstacles.get(0).getRecWidth(),obstacles.get(0).getRecHeight(),null);
         g.drawImage(img_DownPipe,obstacles.get(0).getxPos(),obstacles.get(0).getyPos()+325,obstacles.get(0).getRecWidth(),obstacles.get(0).getRecHeight()+200,null);
+
         g.drawImage(img_UpPipe,obstacles.get(1).getxPos(),obstacles.get(1).getyPos(),obstacles.get(1).getRecWidth(),obstacles.get(1).getRecHeight(),null);
+        g.drawImage(img_DownPipe,obstacles.get(1).getxPos(),obstacles.get(1).getyPos()+325,obstacles.get(1).getRecWidth(),obstacles.get(1).getRecHeight()+200,null);
+
         g.drawImage(img_UpPipe,obstacles.get(2).getxPos(),obstacles.get(2).getyPos(),obstacles.get(2).getRecWidth(),obstacles.get(2).getRecHeight(),null);
+        g.drawImage(img_DownPipe,obstacles.get(2).getxPos(),obstacles.get(2).getyPos()+325,obstacles.get(2).getRecWidth(),obstacles.get(2).getRecHeight()+200,null);
 
 
 

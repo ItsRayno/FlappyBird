@@ -17,9 +17,9 @@ public class StartGame {
         Vector<Obstacle> obstacles = new Vector<>();
         Collide checkCollide = new Collide(bird,obstacles);
 
-        Obstacle obstacleOne = new Obstacle(680,0,70,200);
-        Obstacle obstacleTwo = new Obstacle(980,0,70,200);
-        Obstacle obstacleThree = new Obstacle(1280,0,70,200);
+        Obstacle obstacleOne = new Obstacle(600,0,70,200);
+        Obstacle obstacleTwo = new Obstacle(1000,0,70,200);
+        Obstacle obstacleThree = new Obstacle(1400,0,70,200);
 
         obstacles.add(obstacleOne);
         obstacles.add(obstacleTwo);
